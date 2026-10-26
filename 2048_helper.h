@@ -1,36 +1,43 @@
+//helper.h Responsibilities:
+	//modify the board
+	//check game rules
+	//save/load data
+
 #include <iostream>
 #include <random>
 #include <iomanip>
 using namespace std;
 
-void move_left(int board[][5], int numrows = 5)
+//MOVEMENT
+//Caleb is working on movement
+void move_left(int board[][4], int numrows = 4)
 {
 	//CODE HERE
 }
 
-void move_right(int board[][5], int numrows = 5)
+void move_right(int board[][4], int numrows = 4)
 {
 	//CODE HERE
 }
 
-void move_up(int board[][5], int numrows = 5)
+void move_up(int board[][4], int numrows = 4)
 {
 	//CODE HERE
 }
 
-void move_down(int board[][5], int numrows = 5)
+void move_down(int board[][4], int numrows = 4)
 {
 	//CODE HERE
 }
 
-
-void print_board(int board[][5], int numrows = 5)
+//PRINT BOARD
+void print_board(int board[][4], int numrows = 4)
 {
 	cout << endl << "\t-----------------------------------------" << endl;
 
 	for (int r = 0; r < numrows; r++)
 	{
-		for (int c = 0; c < 5; c++)
+		for (int c = 0; c < 4; c++)
 		{
 			if(board[r][c] > 0)
 				cout << "\t|" << right << setw(6) << setfill(' ') << board[r][c];
@@ -46,15 +53,15 @@ void print_board(int board[][5], int numrows = 5)
 	cout << "\t" << endl << endl;
 }
 
-
-void insert_random(int board[][5], int numrows = 5)
+//TILE INSERTION
+void insert_random(int board[][4], int numrows = 4)
 {
 	int r, c;
 	//count empty
 	int empty_count = 0;
 	for (int r = 0; r < numrows; r++)
 	{
-		for (int c = 0; c < 5; c++)
+		for (int c = 0; c < 4; c++)
 		{
 			if (board[r][c] == 0)
 				empty_count++;
@@ -80,3 +87,7 @@ void insert_random(int board[][5], int numrows = 5)
 	}
 }
 
+//VALIDATION FOR MOVEMENT AND CHECKING FOR WIN/LOSS
+
+
+//SCORE CALCULATION
