@@ -1,6 +1,6 @@
 # Ara-s-Gang
-2048 Coding Group Project
+Introduction to Programming Group Project
 ### Group Members
-- Seth
-- Alex
-- Caleb
+- (Seth D.)
+- (Alex K.)
+- carrob (Caleb R.)
