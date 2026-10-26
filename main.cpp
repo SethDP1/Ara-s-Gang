@@ -1,3 +1,13 @@
+//make functions for:
+	//initialize board
+	//get player choice
+	//process move
+	//game loop
+	//check win
+	//check game over
+	//save game
+	//load game
+
 #include <iostream>
 #include "2048_helper.h"
 using namespace std;
