@@ -16,9 +16,9 @@ int main()
  
 
 
-  for(int j = 0; j <= 15; j++)
+  for(int j = 0; j <= 16; j++)
   {
-    cout << j << " digit is " << card_digits[j] << endl;
+    cout << card_digits[j] << " ";
   }
 
 
