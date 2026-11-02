@@ -1,36 +1,170 @@
-//Luhn Responsibilities:
 #include <iostream>
 using namespace std;
 
 
 int main()
 {
-  //obtain card number
+  //VARIABLE BANK FOR REPEATS
+  bool exit = false;
+  bool repeat_error = false;
+  string repeat = " ";
 
-  char card_digits[16] = {};
   
-  cout << "Please enter the number for verification: ";
-  cin >> card_digits;
-  //read card/string inout
-
- 
-
-
-  for(int j = 0; j <= 16; j++)
+//THE LOOP
+  while (exit == false)
   {
-    cout << card_digits[j] << " ";
+    //RESET VARIABLE BANK
+    char card_characters[16] = {};
+    int card_integers[16] = {};
+    int sum[16] = {};
+    int temp = 0;
+    int Total_sum = 0;
+    int count = 0;
+    bool is_letter = false;
+    bool Dig_Check = false;
+    bool is_valid = false;
+      
+    //Receive the Card Number from User
+    cout << "Please enter the number for verification: ";
+    cin >> card_characters;
+
+
+    /*
+    -----------CHECK FORMATTING-----------
+    */
+
+    //Check digit count
+    while(card_characters[count] != '\0')
+    {
+      count += 1;
+    }
+
+    if (count == 16)
+    {
+      Dig_Check = true;
+    }
+
+    //Check if all numbers
+    for(int check = 0; check < 16; check++)
+    {
+      if ((card_characters[check] - '0') < 0 || (card_characters[check] - '0') > 9)
+      {
+        is_letter = true;
+      }
+    }
+    
+    if (Dig_Check == true && is_letter == false)
+    {
+      cout << "Correct Format; ";
+
+      /*
+      -----------Digit Processing-----------
+      */
+
+
+      //Char to Int conversion
+      for(int index = 0; index < 16; index++)
+      {
+        //subtracting the ASCII value for the character number and the ASCII for 0 
+        card_integers[index] = (card_characters[index] - '0');
+      }
+
+
+
+      //Digit Calculation
+      for(int digit = 15; digit >= 0; digit--)
+      {
+
+        if ((digit %2) == 1)
+        {
+          sum[digit] = card_integers[digit];
+        }
+        else if((digit %2) == 0)
+        {
+          temp = (card_integers[digit] * 2);
+          if (temp > 9)
+          {
+            sum[digit] = (temp - 9);
+          }
+          else if (temp <= 9)
+          {
+            sum[digit] = temp;
+          }
+        }
+      }
+
+
+      /*
+      -----------SUM & CHECK-----------
+      */
+    
+      //SUM
+      for(int j = 0; j < 16; j++)
+      {
+        Total_sum += sum[j];
+      }
+
+      //Mod 10 check
+      if((Total_sum % 10) != 0)
+      {
+        is_valid = false;
+      }
+      else if ((Total_sum % 10) == 0)
+      {
+        is_valid = true;
+      }
+
+      //Is_valid Output
+      if (is_valid == true)
+      {
+        cout << "Checksum Passes" << endl;
+      }
+      else if(is_valid == false)
+      {
+          cout << "Checksum Fails" << endl;
+      }
+    }
+
+    /*
+    -----------Outputs-----------
+    */
+
+    //formating outputs
+
+    if (Dig_Check == false)
+    {
+      cout << "Reject: " << count << " digits" << endl;
+    }
+    else if (is_letter == true)
+    {
+      cout << "Reject: Invalid Digit (Letter or Space) " << endl;
+    }
+
+    repeat_error = true;
+
+    while (repeat_error == true)
+    {
+      cout << "Would you like to exit (Yes or No): ";
+      cin >> repeat;
+
+      if (repeat == "Yes" || repeat == "yes" || repeat == "YES")
+      {
+        cout << "Thank you for using this algorithm :)";
+        exit = true;
+        repeat_error = false;
+      }
+      else if (repeat == "No" || repeat == "no" || repeat == "NO")
+      {
+        exit = false;
+        repeat_error = false;
+      }
+      else
+      {
+        cout << "Input not understood, Please try again.";
+        repeat_error = true;
+      }
+    }
   }
 
-
-  //perform luhn algorithm
-  //report valid/invalid
-    return 0;
-}
-
-  //read card/string inout
-  //perform luhn algorithm
-  //report valid/invalid
-
-//Side Note: Luhn is separate entirely from the 2048 game
-
-//Alex is working on Luhn
+  return 0;
+} 
