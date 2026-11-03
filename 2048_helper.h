@@ -10,28 +10,43 @@ using namespace std;
 
 //MOVEMENT
 //Seth is working on movement
-void move_left(int board[][4], int numrows = 4)
+
+//Helper function for moving left one row
+
+void move_left(int board[][5], int numrows = 5) //move left as normal
 {
-	//CODE HERE
+	//Slide left
+	
+	//Merge
+	
 }
 
-void move_right(int board[][4], int numrows = 4)
+void move_right(int board[][5], int numrows = 5) //reverse the row, process left, then reverse back
 {
-	//CODE HERE
+	//Slide right
+	
+	//Merge
+	
 }
 
-void move_up(int board[][4], int numrows = 4)
+void move_up(int board[][5], int numrows = 5) //treat each column as a row moving left
 {
-	//CODE HERE
+	//Slide up
+	
+	//Merge
+	
 }
 
-void move_down(int board[][4], int numrows = 4)
+void move_down(int board[][5], int numrows = 5) //Reverse the column, process left, then reverse back
 {
-	//CODE HERE
+	//Slide down
+	
+	//Merge
+	
 }
 
 //PRINT BOARD
-void print_board(int board[][4], int numrows = 4)
+void print_board(int board[][5], int numrows = 5)
 {
 	cout << endl << "\t-----------------------------------------" << endl;
 
@@ -54,7 +69,7 @@ void print_board(int board[][4], int numrows = 4)
 }
 
 //TILE INSERTION
-void insert_random(int board[][4], int numrows = 4)
+void insert_random(int board[][5], int numrows = 5)
 {
 	int r, c;
 	//count empty
