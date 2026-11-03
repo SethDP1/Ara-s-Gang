@@ -11,12 +11,13 @@ using namespace std;
 
 int main()
 {
-	int size = 4;
-	int board[4][4] = {
-		{0, 0, 0, 0}
-		{0, 0, 0, 0}
-		{0, 0, 0, 0}
-		{0, 0, 0, 0}
+	int size = 5;
+	int board[5][5] = {
+		{0, 0, 0, 0, 0}
+		{0, 0, 0, 0, 0}
+		{0, 0, 0, 0, 0}
+		{0, 0, 0, 0, 0}
+		{0, 0, 0, 0, 0}
 	};
 	//while getch == x loop for up down left right
 
