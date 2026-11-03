@@ -9,7 +9,7 @@
 using namespace std;
 
 //MOVEMENT
-//Caleb is working on movement
+//Seth is working on movement
 void move_left(int board[][4], int numrows = 4)
 {
 	//CODE HERE
