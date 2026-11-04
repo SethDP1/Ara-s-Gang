@@ -19,54 +19,68 @@ void process_row_left(int row[], int size)
 	int pos=0;
 
 	for(int i=0; i<size; i++)
+	{
+		if(row[i]!=0)
 		{
-			if(row[i]!=0)
-			{
-				temp[pos++]=row[i];
-			}	
-		}
+			temp[pos++]=row[i];
+		}	
+	}
 
 	//Merge
 	for(int i=0; i<size-1; i++)
+	{
+		if(temp[i]!=0 && temp[i]==temp[i+1])
 		{
-			if(temp[i]!=0 && temp[i]==temp[i+1])
-				{
-					temp[i]=temp[i]*2;
+			temp[i]=temp[i]*2;
 					temp[i+1]=1;
-				}	
-		}
+		}	
+	}
 
 	//Slide again after merge
 	int result[5]={0};
 	pos=0;
 
 	for(int i=0; i<size; i++)
+	{
+		if(temp[i]!=0)
 		{
-			if(temp[i]!=0)
-			{
-				result[pos++]=temp[i];
-			}	
+			result[pos++]=temp[i];
 		}	
+	}	
 
 	//Copy back
 	for(int i=0; i<size; i++)
-		{
-			row[i]=result[i];
-		}	
+	{
+		row[i]=result[i];
+	}	
 }
 
 void move_left(int board[][5], int numrows = 5) //move left as normal
 {
 	for(int r=0; r<numrows; r++)
-		{
-			process_row_left(board[r],5);
-		}	
-	
+	{
+		process_row_left(board[r],5);
+	}	
 }
 
 void move_right(int board[][5], int numrows = 5) //reverse the row, process left, then reverse back
 {
-		
+	for(int r=0; r<numrows; r++)
+	{
+		int temp[5];
+
+		for(int c=0; c<5; c++)
+		{
+			temp[c]=board[r][4-c];		
+		}
+
+		process_row_left(temp, 5);
+
+		for(int c=0; c<5; c++)
+		{
+			board[r][4-c]=temp[c];		
+		}	
+	}		
 }
 
 void move_up(int board[][5], int numrows = 5) //treat each column as a row moving left
