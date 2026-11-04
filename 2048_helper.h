@@ -85,10 +85,19 @@ void move_right(int board[][5], int numrows = 5) //reverse the row, process left
 
 void move_up(int board[][5], int numrows = 5) //treat each column as a row moving left
 {
-	//Slide up
-	
-	//Merge
-	
+	int temp[5];
+
+	for(int r=0; r<numrows; r++)
+	{
+		temp[r]=board[r][c];
+	}	
+
+	process_row_left(temp, numrows);
+
+	for(int r=0; r<numrows; r++)
+	{
+		board[r][c]=temp[r];
+	}	
 }
 
 void move_down(int board[][5], int numrows = 5) //Reverse the column, process left, then reverse back
