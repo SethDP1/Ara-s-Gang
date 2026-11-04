@@ -8,7 +8,7 @@
 #include <iomanip>
 using namespace std;
 
-//MOVEMENT
+//MOVEMENT(done writing, but double check when running)
 //Seth is working on movement
 
 //Helper function for moving left one row
@@ -85,27 +85,42 @@ void move_right(int board[][5], int numrows = 5) //reverse the row, process left
 
 void move_up(int board[][5], int numrows = 5) //treat each column as a row moving left
 {
-	int temp[5];
-
 	for(int r=0; r<numrows; r++)
 	{
+		int temp[5];
+		
 		temp[r]=board[r][c];
-	}	
+		{
+			temp[r]=board[r][c];
+		}
 
-	process_row_left(temp, numrows);
+		process_row_left(temp, numrows);
 
-	for(int r=0; r<numrows; r++)
-	{
-		board[r][c]=temp[r];
+		for(int r=0; r<numrows; r++)
+		{
+			board[r][c]=temp[r];
+		}	
 	}	
 }
 
 void move_down(int board[][5], int numrows = 5) //Reverse the column, process left, then reverse back
 {
-	//Slide down
-	
-	//Merge
-	
+	for(int c=0; c<5; c++)
+	{
+		int temp[5];
+
+		for(int r=0; r<numrows; r++)
+		{
+			temp[r]=board[numrows-1-r][c];
+		}	
+
+		process_row_left(temp, numrows);
+
+		for(int r=0; r<numrows; r++)
+		{
+			board[numrows-1-r][c]=temp[r];
+		}	
+	}
 }
 
 //PRINT BOARD
