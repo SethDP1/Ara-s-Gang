@@ -13,6 +13,47 @@ using namespace std;
 
 //Helper function for moving left one row
 void process_row_left(int row[], int size)
+{
+	//Slide left
+	int temp[5]={0};
+	int pos=0;
+
+	for(int i=0; i<size; i++)
+		{
+			if(row[i]!=0)
+			{
+				temp[pos++]=row[i];
+			}	
+		}
+
+	//Merge
+	for(int i=0; i<size-1; i++)
+		{
+			if(temp[i]!=0 && temp[i]==temp[i+1])
+				{
+					temp[i]=temp[i]*2;
+					temp[i+1]=1;
+				}	
+		}
+
+	//Slide again after merge
+	int result[5]={0};
+	pos=0;
+
+	for(int i=0; i<size; i++)
+		{
+			if(temp[i]!=0)
+			{
+				result[pos++]=temp[i];
+			}	
+		}	
+
+	//Copy back
+	for(int i=0; i<size; i++)
+		{
+			row[i]=result[i];
+		}	
+}
 
 void move_left(int board[][5], int numrows = 5) //move left as normal
 {
