@@ -12,6 +12,7 @@ using namespace std;
 //Seth is working on movement
 
 //Helper function for moving left one row
+void process_row_left(int row[], int size)
 
 void move_left(int board[][5], int numrows = 5) //move left as normal
 {
