@@ -57,18 +57,16 @@ void process_row_left(int row[], int size)
 
 void move_left(int board[][5], int numrows = 5) //move left as normal
 {
-	//Slide left
-	
-	//Merge
+	for(int r=0; r<numrows; r++)
+		{
+			process_row_left(board[r],5);
+		}	
 	
 }
 
 void move_right(int board[][5], int numrows = 5) //reverse the row, process left, then reverse back
 {
-	//Slide right
-	
-	//Merge
-	
+		
 }
 
 void move_up(int board[][5], int numrows = 5) //treat each column as a row moving left
