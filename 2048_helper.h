@@ -8,7 +8,7 @@
 #include <iomanip>
 using namespace std;
 
-//MOVEMENT(done writing, but double check when running)
+//MOVEMENT(FIX UP)
 //Seth is working on movement
 
 //Helper function for moving left one row
