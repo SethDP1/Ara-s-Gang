@@ -29,18 +29,18 @@ int main()
 	while (choice != 'e')
 	{
 
-		cout << "Please enter choice:{u,d,l,r,e} for UP, DOWN, LEFT, RIGHT, Exit: " << endl;
+		cout << "Please enter choice:{w,s,a,d,e} for UP, DOWN, LEFT, RIGHT, Exit: " << endl;
 		cout << "Choice: ";
 		cin >> choice;
 
 //PROCESS
-		if (choice == 'u')
+		if (choice == 'w')
 			move_up(board, size);
-		else if (choice == 'd')
+		else if (choice == 's')
 			move_down(board, size);
-		else if (choice == 'l')
+		else if (choice == 'a')
 			move_left(board, size);
-		else if (choice == 'r')
+		else if (choice == 'd')
 			move_right(board, size);
 
 		insert_random(board, size);
