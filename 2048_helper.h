@@ -85,14 +85,14 @@ void move_right(int board[][5], int numrows = 5) //reverse the row, process left
 
 void move_up(int board[][5], int numrows = 5) //treat each column as a row moving left
 {
-	for(int r=0; r<numrows; r++)
+	for(int c=0; c<5; c++)
 	{
 		int temp[5];
-		
-		temp[r]=board[r][c];
+
+		for(int r=0; r<numrows; r++)
 		{
 			temp[r]=board[r][c];
-		}
+		}	
 
 		process_row_left(temp, numrows);
 
