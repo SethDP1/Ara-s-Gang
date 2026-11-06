@@ -151,7 +151,6 @@ int main()
     {
       cout << "Would you like to exit (Yes or No): " << endl;
       cin >> repeat;
-      cout << "'" << repeat << "'" << endl;
       if (repeat == "Yes" || repeat == "yes" || repeat == "YES")
       {
         cout << "Thank you for using this algorithm :)";
