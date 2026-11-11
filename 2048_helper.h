@@ -4,7 +4,7 @@
 	//save/load data
 
 #include <iostream>
-#include <random>
+#include <cstdlib>
 #include <iomanip>
 using namespace std;
 
@@ -74,7 +74,7 @@ void move_right(int board[][5], int numrows = 5) //reverse the row, process left
 			temp[c]=board[r][numrows-1-c];		
 		}
 
-		process_row_left(temp, 5);
+		process_row_left(temp, numrows);
 
 		for(int c=0; c<5; c++)
 		{
@@ -154,7 +154,7 @@ void insert_random(int board[][5], int numrows = 5)
 	int empty_count = 0;
 	for (int r = 0; r < numrows; r++)
 	{
-		for (int c = 0; c < 5; c++)
+		for (int c = 0; c < numrows; c++)
 		{
 			if (board[r][c] == 0)
 				empty_count++;
@@ -212,8 +212,8 @@ bool check_win(int board[][5], int size=5)
 				return true;
 			}	
 		}
-	return false;	
-	}		
+	}	
+	return false;
 }	
 
 bool check_loss(int board[][5], int size=5)
@@ -248,12 +248,14 @@ bool check_loss(int board[][5], int size=5)
 	{
 		for(int c=0; c<size-1; c++)
 		{
-			if(board[r][c]==board[r][c+1])
+			if(board[r][c]==board[r+1][c])
 			{
 				return false;
 			}	
 		}	
 	}
+
+	return true;
 }	
 
 //SCORE CALCULATION
