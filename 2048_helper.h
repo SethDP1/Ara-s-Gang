@@ -182,9 +182,21 @@ void insert_random(int board[][5], int numrows = 5)
 
 //VALIDATION FOR MOVEMENT AND CHECKING FOR WIN/LOSS
 
-bool check_win()
+bool boards_are_equal(int board[][5], int board2[][5], int size=5)
+{
+	for(int r=0; r<size; r++)
+	{
+		for(int c=0; c<size; c++)
+		{
+			if(board1[r][c]!=board2[r][c])
+			{
+				return false;
+			}	
+		}	
+	}
 
-bool check_loss()
+	return true;
+}	
 
 
 //SCORE CALCULATION
