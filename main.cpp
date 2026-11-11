@@ -6,11 +6,14 @@
 	//run until win, lose, or exit
 
 #include <iostream>
+#include <ctime>
 #include "2048_helper.h"
 using namespace std;
 
 int main()
 {
+	srand(time(0));
+	
 	int size = 5;
 	int board[5][5] = {
 		{0, 0, 0, 0, 0},
