@@ -32,7 +32,7 @@ void process_row_left(int row[], int size)
 		if(temp[i]!=0 && temp[i]==temp[i+1])
 		{
 			temp[i]=temp[i]*2;
-					temp[i+1]=1;
+			temp[i+1]=0;
 		}	
 	}
 
@@ -154,7 +154,7 @@ void insert_random(int board[][5], int numrows = 5)
 	int empty_count = 0;
 	for (int r = 0; r < numrows; r++)
 	{
-		for (int c = 0; c < 4; c++)
+		for (int c = 0; c < 5; c++)
 		{
 			if (board[r][c] == 0)
 				empty_count++;
