@@ -77,7 +77,7 @@ int main()
 
 		if(check_loss(board,size))
 		{
-			cout<<"Game Over!<<endl;
+			cout<<"Game Over!"<<endl;
 			break;	
 		}	
 	}
