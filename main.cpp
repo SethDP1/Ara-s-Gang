@@ -24,12 +24,12 @@ int main()
 	};
 	//while getch == x loop for up down left right
 
+//Inserts two initial tiles in the board to start with
+	insert_random(board,size);
+	insert_random(board,size);
+	
 //the "print board" function is in the helper file
 	cout << "Initial Board : [5x5] :" << endl;
-	
-	//Inserts two initial tiles in the board to start with
-	insert_random(board,size);
-	insert_random(board,size);
 	print_board(board)
 
 	char choice = 'u';	//initialized
