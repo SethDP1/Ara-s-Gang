@@ -59,7 +59,7 @@ void move_left(int board[][5], int numrows = 5) //move left as normal
 {
 	for(int r=0; r<numrows; r++)
 	{
-		process_row_left(board[r],5);
+		process_row_left(board[r],numrows);
 	}	
 }
 
@@ -69,23 +69,23 @@ void move_right(int board[][5], int numrows = 5) //reverse the row, process left
 	{
 		int temp[5];
 
-		for(int c=0; c<5; c++)
+		for(int c=0; c<numrows; c++)
 		{
-			temp[c]=board[r][4-c];		
+			temp[c]=board[r][numrows-1-c];		
 		}
 
 		process_row_left(temp, 5);
 
 		for(int c=0; c<5; c++)
 		{
-			board[r][4-c]=temp[c];		
+			board[r][numrows-1-c]=temp[c];		
 		}	
 	}		
 }
 
 void move_up(int board[][5], int numrows = 5) //treat each column as a row moving left
 {
-	for(int c=0; c<5; c++)
+	for(int c=0; c<numrows; c++)
 	{
 		int temp[5];
 
@@ -105,7 +105,7 @@ void move_up(int board[][5], int numrows = 5) //treat each column as a row movin
 
 void move_down(int board[][5], int numrows = 5) //Reverse the column, process left, then reverse back
 {
-	for(int c=0; c<5; c++)
+	for(int c=0; c<numrows; c++)
 	{
 		int temp[5];
 
@@ -130,7 +130,7 @@ void print_board(int board[][5], int numrows = 5)
 
 	for (int r = 0; r < numrows; r++)
 	{
-		for (int c = 0; c < 5; c++)
+		for (int c = 0; c < numrows; c++)
 		{
 			if(board[r][c] > 0)
 				cout << "\t|" << right << setw(6) << setfill(' ') << board[r][c];
