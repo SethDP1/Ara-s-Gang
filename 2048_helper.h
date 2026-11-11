@@ -182,6 +182,7 @@ void insert_random(int board[][5], int numrows = 5)
 
 //VALIDATION FOR MOVEMENT AND CHECKING FOR WIN/LOSS
 
+//movement validation
 bool boards_are_equal(int board[][5], int board2[][5], int size=5)
 {
 	for(int r=0; r<size; r++)
@@ -198,5 +199,61 @@ bool boards_are_equal(int board[][5], int board2[][5], int size=5)
 	return true;
 }	
 
+//win/loss check
+
+bool check_win(int board[][5], int size=5)
+{
+	for(int r=0; r<size; r++)
+	{
+		for(int c=0; c<size; c++)
+		{
+			if(board[r][c]==2048)
+			{
+				return true;
+			}	
+		}
+	return false;	
+	}		
+}	
+
+bool check_loss(int board[][5], int size=5)
+{
+	//check for empty spaces
+	for(int r=0; r<size; r++)
+	{
+		for(int c=0; c<size; c++)
+		{
+			if(board[r][c]==0)
+			{
+				return false;
+			}	
+		}	
+	}
+
+	//check horizontal matches
+	for(int r=0; r<size; r++)
+	{
+		for(int c=0; c<size-1; c++)
+		{
+			if(board[r][c]==board[r][c+1])
+			{
+				return false;
+			}	
+		}	
+	}
+
+	
+	//check vertical matches
+	for(int r=0; r<size; r++)
+	{
+		for(int c=0; c<size-1; c++)
+		{
+			if(board[r][c]==board[r][c+1])
+			{
+				return false;
+			}	
+		}	
+	}
+}	
 
 //SCORE CALCULATION
