@@ -25,6 +25,11 @@ int main()
 	cout << "Initial Board : [5x5] :" << endl;
 	print_board(board);
 
+	//Inserts two initial tiles in the board to start with
+	insert_random(board,size);
+	insert_random(board,size);
+	print_board(board)
+
 	char choice = 'u';	//initialized
 	while (choice != 'e')
 	{
@@ -34,6 +39,10 @@ int main()
 		cin >> choice;
 
 //PROCESS
+
+		if (choice == 'e')
+			break;
+		
 		if (choice == 'w')
 			move_up(board, size);
 		else if (choice == 's')
