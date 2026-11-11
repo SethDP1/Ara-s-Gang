@@ -182,5 +182,9 @@ void insert_random(int board[][5], int numrows = 5)
 
 //VALIDATION FOR MOVEMENT AND CHECKING FOR WIN/LOSS
 
+bool check_win()
+
+bool check_loss()
+
 
 //SCORE CALCULATION
