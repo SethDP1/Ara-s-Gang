@@ -67,7 +67,7 @@ int main()
 			insert_random(board,size);
 		}	
 
-		print_board;
+		print_board(board, size);
 
 		if(check_win(board,size))
 		{
