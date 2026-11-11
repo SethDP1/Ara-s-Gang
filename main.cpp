@@ -26,8 +26,7 @@ int main()
 
 //the "print board" function is in the helper file
 	cout << "Initial Board : [5x5] :" << endl;
-	print_board(board);
-
+	
 	//Inserts two initial tiles in the board to start with
 	insert_random(board,size);
 	insert_random(board,size);
