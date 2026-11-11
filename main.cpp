@@ -35,6 +35,14 @@ int main()
 	char choice = 'u';	//initialized
 	while (choice != 'e')
 	{
+		int old_board[5][5];
+		for(int r=0; r<size; r++)
+		{
+			for(int c=0; c<size; c++)
+			{
+				old_board[r][c]=board[r][c];
+			}	
+		}		
 
 		cout << "Please enter choice:{w,s,a,d,e} for UP, DOWN, LEFT, RIGHT, Exit: " << endl;
 		cout << "Choice: ";
@@ -54,8 +62,12 @@ int main()
 		else if (choice == 'd')
 			move_right(board, size);
 
-		insert_random(board, size);
-		print_board(board);
+		if(!boards_are_equal(board,old_board,size))
+		{
+			insert_random(board,size);
+		}	
+
+		print_board;
 
 	}
 
