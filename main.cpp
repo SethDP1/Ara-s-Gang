@@ -69,6 +69,17 @@ int main()
 
 		print_board;
 
+		if(check_win(board,size))
+		{
+			cout<<"You Win!"<<endl;
+			break;
+		}	
+
+		if(check_loss(board,size))
+		{
+			cout<<"Game Over!<<endl;
+			break;	
+		}	
 	}
 
 
