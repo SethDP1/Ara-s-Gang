@@ -183,7 +183,7 @@ void insert_random(int board[][5], int numrows = 5)
 //VALIDATION FOR MOVEMENT AND CHECKING FOR WIN/LOSS
 
 //movement validation
-bool boards_are_equal(int board[][5], int board2[][5], int size=5)
+bool boards_are_equal(int board1[][5], int board2[][5], int size=5)
 {
 	for(int r=0; r<size; r++)
 	{
