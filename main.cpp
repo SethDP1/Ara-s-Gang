@@ -30,7 +30,7 @@ int main()
 	
 //the "print board" function is in the helper file
 	cout << "Initial Board : [5x5] :" << endl;
-	print_board(board)
+	print_board(board);
 
 	char choice = 'u';	//initialized
 	while (choice != 'e')
