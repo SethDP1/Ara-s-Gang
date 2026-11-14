@@ -12,7 +12,7 @@ using namespace std;
 //Seth is working on movement
 
 //Helper function for moving left one row
-void process_row_left(int row[], int size)
+void process_row_left(int row[], int size, int& score)
 {
 	//Slide left
 	int temp[5]={0};
@@ -32,6 +32,9 @@ void process_row_left(int row[], int size)
 		if(temp[i]!=0 && temp[i]==temp[i+1])
 		{
 			temp[i]=temp[i]*2;
+
+			score=score+temp[i];
+			
 			temp[i+1]=0;
 		}	
 	}
@@ -55,15 +58,15 @@ void process_row_left(int row[], int size)
 	}	
 }
 
-void move_left(int board[][5], int numrows = 5) //move left as normal
+void move_left(int board[][5], int& score, int numrows = 5) //move left as normal
 {
 	for(int r=0; r<numrows; r++)
 	{
-		process_row_left(board[r],numrows);
+		process_row_left(board[r],numrows,score);
 	}	
 }
 
-void move_right(int board[][5], int numrows = 5) //reverse the row, process left, then reverse back
+void move_right(int board[][5], int& score, int numrows = 5) //reverse the row, process left, then reverse back
 {
 	for(int r=0; r<numrows; r++)
 	{
@@ -74,7 +77,7 @@ void move_right(int board[][5], int numrows = 5) //reverse the row, process left
 			temp[c]=board[r][numrows-1-c];		
 		}
 
-		process_row_left(temp, numrows);
+		process_row_left(temp, numrows, score);
 
 		for(int c=0; c<5; c++)
 		{
@@ -83,7 +86,7 @@ void move_right(int board[][5], int numrows = 5) //reverse the row, process left
 	}		
 }
 
-void move_up(int board[][5], int numrows = 5) //treat each column as a row moving left
+void move_up(int board[][5], int& score, int numrows = 5) //treat each column as a row moving left
 {
 	for(int c=0; c<numrows; c++)
 	{
@@ -94,7 +97,7 @@ void move_up(int board[][5], int numrows = 5) //treat each column as a row movin
 			temp[r]=board[r][c];
 		}	
 
-		process_row_left(temp, numrows);
+		process_row_left(temp, numrows, score);
 
 		for(int r=0; r<numrows; r++)
 		{
@@ -103,7 +106,7 @@ void move_up(int board[][5], int numrows = 5) //treat each column as a row movin
 	}	
 }
 
-void move_down(int board[][5], int numrows = 5) //Reverse the column, process left, then reverse back
+void move_down(int board[][5], int& score, int numrows = 5) //Reverse the column, process left, then reverse back
 {
 	for(int c=0; c<numrows; c++)
 	{
@@ -114,7 +117,7 @@ void move_down(int board[][5], int numrows = 5) //Reverse the column, process le
 			temp[r]=board[numrows-1-r][c];
 		}	
 
-		process_row_left(temp, numrows);
+		process_row_left(temp, numrows, score);
 
 		for(int r=0; r<numrows; r++)
 		{
