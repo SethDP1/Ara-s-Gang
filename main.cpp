@@ -56,13 +56,13 @@ int main()
 			break;
 		
 		if (choice == 'w')
-			move_up(board, size);
+			move_up(board, size, score);
 		else if (choice == 's')
-			move_down(board, size);
+			move_down(board, size, score);
 		else if (choice == 'a')
-			move_left(board, size);
+			move_left(board, size, score);
 		else if (choice == 'd')
-			move_right(board, size);
+			move_right(board, size, score);
 
 		if(!boards_are_equal(board,old_board,size))
 		{
@@ -70,7 +70,8 @@ int main()
 		}	
 
 		print_board(board, size);
-
+		cout<<"Score: "<<score<<endl;
+		
 		if(check_win(board,size))
 		{
 			cout<<"You Win!"<<endl;
