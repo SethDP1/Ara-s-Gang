@@ -244,9 +244,9 @@ bool check_loss(int board[][5], int size=5)
 
 	
 	//check vertical matches
-	for(int r=0; r<size; r++)
+	for(int r=0; r<size-1; r++)
 	{
-		for(int c=0; c<size-1; c++)
+		for(int c=0; c<size; c++)
 		{
 			if(board[r][c]==board[r+1][c])
 			{
