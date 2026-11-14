@@ -260,5 +260,3 @@ bool check_loss(int board[][5], int size=5)
 
 	return true;
 }	
-
-//SCORE CALCULATION
