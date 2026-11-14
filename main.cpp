@@ -13,8 +13,10 @@ using namespace std;
 int main()
 {
 	srand(time(0));
-	
+
+	int score=0;	
 	int size = 5;
+	
 	int board[5][5] = {
 		{0, 0, 0, 0, 0},
 		{0, 0, 0, 0, 0},
