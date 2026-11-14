@@ -56,13 +56,13 @@ int main()
 			break;
 		
 		if (choice == 'w')
-			move_up(board, size, score);
+			move_up(board, score, size);
 		else if (choice == 's')
-			move_down(board, size, score);
+			move_down(board, score, size);
 		else if (choice == 'a')
-			move_left(board, size, score);
+			move_left(board, score, size);
 		else if (choice == 'd')
-			move_right(board, size, score);
+			move_right(board, score, size);
 
 		if(!boards_are_equal(board,old_board,size))
 		{
