@@ -144,4 +144,55 @@ Other Luhn tests
 *453201511283036X(input)(mis formatted) -> reject mis formatted input
 
 Results match expected behavior
+-----------------------------------------------------------------------------------------------------
+Luhn Flowchart:
+
+Start
+  |
+Read input
+  |
+Valid format?
+ / \
+No  Yes
+ |    |
+error |
+ |    v
+ | Check Luhn
+ |    |
+ | Checksum pass?
+ |   / \
+ | Yes No
+ | |    |
+ | Valid invalid
+ |   \ /
+ ------
+   |
+Would you like to exit?
+ /  \
+Yes  No
+|    |
+End  Loop
+----------------------------------------------------------------------------------------------------
+Luhn workflow diagram:
+
+main()
+ │
+ |- Get Card Number
+ │
+ |- Check Length (16 digits)
+ │
+ |- Check Digits Only
+ │
+ |- Digit_Processing()
+ │      │
+ │      |- Convert char[] to int[]
+ │      |- Apply Luhn digit rules
+ │      |- Sum all values
+ │      |- Perform Mod-10 check
+ │
+ |- Display Result
+ │      |- Checksum Passes
+ │      |- Checksum Fails
+ │
+ |- Ask User to Exit
 */
