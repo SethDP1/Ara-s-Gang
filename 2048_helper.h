@@ -265,7 +265,7 @@ bool check_loss(int board[][5], int size=5)
 	return true;
 }
 
-//VALIDATION
+//VALIDATION OF TILES
 
 bool valid_tile(int value)
 {
