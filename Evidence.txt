@@ -1,5 +1,5 @@
 /*
-2048 Movement Dry Run
+2048 Movement Dry Runs
 
 ------------------------------
 EXAMPLE 1: Merges after moving left
@@ -131,6 +131,17 @@ Position | Digit | Action  | Result | Explanation
 The digits were processed from right to left. Every second digit was doubled. Values above 9 were reduced by subtracting 9.
 The final sum was 50. 50%10=0, therefore the checksum passes.
 -----------------------------------------------------------------------------------------------------
-Luhn Test using
+Other Luhn tests
 
+*4532015112830366(input) -> checksum fails
+
+*0000000000000018(input) -> leading zeroes preserved; checksum passes
+
+*453201511283036(input)(only 15 digits) -> rejected 15 digits
+
+*45320151128303666(input)(17 digits) -> rejected 17 digits
+
+*453201511283036X(input)(mis formatted) -> reject mis formatted input
+
+Results match expected behavior
 */
