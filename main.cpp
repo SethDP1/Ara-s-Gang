@@ -46,7 +46,7 @@ int main()
 			}	
 		}		
 
-		cout << "Please enter choice:{w,s,a,d,e} for UP, DOWN, LEFT, RIGHT, Exit: " << endl;
+		cout << "Please enter choice:{w,s,a,d,v,l,e} for UP, DOWN, LEFT, RIGHT, SAVE, LOAD, Exit: " << endl;
 		cout << "Choice: ";
 		cin >> choice;
 
@@ -54,6 +54,20 @@ int main()
 
 		if (choice == 'e')
 			break;
+
+		if(choice == 'v')
+		{	
+    		save_game(board,size,score);
+    		continue;
+		}	
+		if(choice == 'l')
+		{
+    		load_game(board,size,score);
+    		print_board(board,size);
+
+    		cout << "Score: " << score << endl;
+    		continue;
+		}
 		
 		if (choice == 'w')
 			move_up(board, score, size);
