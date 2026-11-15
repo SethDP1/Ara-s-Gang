@@ -294,6 +294,7 @@ void save_game(int board[][5], int size, int score)
 	ofstream fout("savegame.txt");
 
 	fout<<"CS211_2048_V1"<<endl;
+	fout<<score<<endl;
 
 	for(int r=0; r<size; r++)
 	{
