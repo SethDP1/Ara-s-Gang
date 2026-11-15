@@ -346,7 +346,7 @@ bool load_game(int board[][5], int size, int& score)
     {
         for(int c=0; c<size; c++)
         {
-            if(!(fin> tempBoard[r][c]))
+            if(!(fin>>tempBoard[r][c]))
             {
                 cout<<"Missing board data."<<endl;
                 return false;
