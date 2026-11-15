@@ -1,0 +1,136 @@
+/*
+2048 Movement Dry Run
+
+------------------------------
+EXAMPLE 1: Merges after moving left
+Starting: 
+2 2 2 2 0  
+Input: LEFT
+Expected Result: 
+4 4 0 0 0
+Merge Score: +8
+Movement Count: +1
+
+Move left and merge:
+4 0 4 0 0
+Final left slide: 
+4 4 0 0 0
+
+Results match expected behavior
+------------------------------
+EXAMPLE 2: Three equal tiles
+Starting: 
+2 2 2 0 0  
+Input: LEFT
+Expected Result: 
+4 2 0 0 0
+Merge Score: +4
+Movement Count: +1
+
+Move left and merge:
+4 0 2 0 0
+Final left slide: 
+4 2 0 0 0
+
+Results match expected behavior
+------------------------------
+EXAMPLE 3: Move up
+Starting: 
+2 0 0 0 0
+0 0 0 0 0
+0 0 0 0 0
+2 0 0 0 0
+0 0 0 0 0
+Input: UP
+Expected Result: 
+4 0 0 0 0
+0 0 0 0 0
+0 0 0 0 0
+0 0 0 0 0
+0 0 0 0 0
+Merge Score: +4
+Movement count: +1
+
+Move up and merge:
+4 0 0 0 0
+0 0 0 0 0
+0 0 0 0 0
+0 0 0 0 0
+0 0 0 0 0
+
+Results match expected behavior
+------------------------------
+EXAMPLE 4: Unchanged move
+Starting: 
+2 0 0 0 0 
+Input: LEFT
+Expected Result: 
+2 0 0 0 0
+Merge Score: +0
+Movement Count: +0
+
+No move happens:
+2 0 0 0 0
+
+Results match expected behavior
+
+------------------------------
+Example 5: Full board with no possible mergse
+
+Starting:
+2   4   8    16  32 
+64  128 256  512 1024 
+8   16  32   64  128 
+256 512 1024 2   4 
+16  32  64   128 256
+
+Expected: Game Over
+
+Result: Game Over
+
+Results match expected behavior
+-----------------------------
+Examples with save and load:
+
+*Save(input) -> board, move count, and score saved -> load(input) -> same board, move count, and score loaded
+
+*Load(input) when no save exists -> error message displayed; no change to board
+
+*Load(input) a save with invalid tile -> load rejected; board unchanged
+
+Results match expected behavior
+-----------------------------
+Example with invalid command:
+
+*Input of 'x' -> error message shown; board unchanged
+
+Results match expected behavior
+-----------------------------
+*/
+
+/*
+Luhn Dry Run using 4532015112830366
+Position | Digit | Action  | Result | Explanation
+1        | 6     | Keep    | 6      | Rightmost digit stays the same
+2        | 6     | Double  | 3      | 12->12-9=3
+3        | 3     | Keep    | 3      | No doubling
+4        | 0     | Double  | 0      | 0×2=0
+5        | 3     | Keep    | 3      | No doubling
+6        | 8     | Double  | 7      | 16->16-9=7
+7        | 2     | Keep    | 2      | No doubling
+8        | 1     | Double  | 2      | 1×2=2
+9        | 1     | Keep    | 1      | No doubling
+10       | 5     | Double  | 1      | 10->10-9=1
+11       | 1     | Keep    | 1      | No doubling
+12       | 0     | Double  | 0      | 0×2=0
+13       | 2     | Keep    | 2      | No doubling
+14       | 3     | Double  | 6      | 3×2=6
+15       | 5     | Keep    | 5      | No doubling
+16       | 4     | Double  | 8      | 4×2=8
+
+The digits were processed from right to left. Every second digit was doubled. Values above 9 were reduced by subtracting 9.
+The final sum was 50. 50%10=0, therefore the checksum passes.
+-----------------------------------------------------------------------------------------------------
+Luhn Test using
+
+*/
