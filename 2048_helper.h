@@ -263,4 +263,123 @@ bool check_loss(int board[][5], int size=5)
 	}
 
 	return true;
+}
+
+//VALIDATION
+
+bool valid_tile(int value)
+{
+	if(value==0)
+	{
+		return true;
+	}	
+
+	if(value<2)
+	{
+		return false;
+	}
+
+	while(value%2 == 0)
+	{
+		value=value/2;
+	}
+
+	return value==1;
+}	
+
+//SAVE GAME and LOAD GAME
+
+void save_game(int board[][5], int size, int score)
+{
+	ofstream fout("savegame.txt");
+
+	fout<<"CS211_2048_V1"<<endl;
+
+	for(int r=0; r<size; r++)
+	{
+		for(int c=0; c<size; c++)
+		{
+			fout<<board[r][c]<<" ";
+		}
+		fout<<endl;
+	}	
+
+	fout.close();
+
+	cout<<"Game Saved"<<endl;
+}
+
+bool load_game(int board[][5], int size, int& score)
+{
+	ifstream fin("savegame.txt");
+
+    if(!fin)
+    {
+        cout<<"Error opening file."<<endl;
+        return false;
+    }
+
+    string marker;
+    int tempScore;
+    int tempBoard[5][5];
+    fin>>marker;
+
+    if(marker!="CS211_2048_V1")
+    {
+        cout<<"Invalid save file."<<endl;
+        return false;
+    }
+
+    if(!(fin>>tempScore))
+    {
+        cout<<"Invalid score."<<endl;
+        return false;
+    }
+
+    if(tempScore<0)
+    {
+        cout<<"Invalid score."<<endl;
+        return false;
+    }
+
+    for(int r=0; r<size; r++)
+    {
+        for(int c=0; c<size; c++)
+        {
+            if(!(fin> tempBoard[r][c]))
+            {
+                cout<<"Missing board data."<<endl;
+                return false;
+            }
+
+            if(!valid_tile(tempBoard[r][c]))
+            {
+                cout<<"Invalid tile detected."<<endl;
+                return false;
+            }
+        }
+    }
+
+    int extra;
+    if(fin>>extra)
+    {
+        cout<<"Extra data found."<<endl;
+        return false;
+    }
+
+    // COPY ONLY AFTER EVERYTHING PASSES
+
+    score=tempScore;
+
+    for(int r=0; r<size; r++)
+    {
+        for(int c=0; c<size; c++)
+        {
+            board[r][c]=tempBoard[r][c];
+        }
+    }
+
+    cout<<"Game Loaded"<<endl;
+
+    return true;
 }	
